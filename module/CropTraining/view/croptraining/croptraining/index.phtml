@@ -1,0 +1,28 @@
+<?php
+ $title = 'Crops';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <p>
+     <a href="<?php echo $this->url('crop', array('action'=>'add'));?>">Add new crop</a>
+ </p>
+
+ <table class="table">
+ <tr>
+     <th>Name</th>
+     <th>Disease</th>
+     <th>&nbsp;</th>
+ </tr>
+ <?php foreach ($crops as $crop) : ?>
+ <tr>
+     <td><?php echo $this->escapeHtml($crop->title);?></td>
+     <td><?php echo $this->escapeHtml($crop->artist);?></td>
+     <td>
+         <a href="<?php echo $this->url('crop',
+             array('action'=>'edit', 'id' => $crop->id));?>">Edit</a>
+         <a href="<?php echo $this->url('crop',
+             array('action'=>'delete', 'id' => $crop->id));?>">Delete</a>
+     </td>
+ </tr>
+ <?php endforeach; ?>
+ </table>
